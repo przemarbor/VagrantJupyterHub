@@ -17,6 +17,13 @@ deb http://deb.debian.org/debian bullseye-backports main contrib non-free
 deb-src http://deb.debian.org/debian bullseye-backports main contrib non-free
 EOF
 
+sudo apt install fasttrack-archive-keyring
+
+sudo tee -a /etc/apt/sources.list<<EOF
+deb https://fasttrack.debian.net/debian-fasttrack/ bullseye-fasttrack main contrib
+deb https://fasttrack.debian.net/debian-fasttrack/ bullseye-backports-staging main contrib
+EOF
+
 # sudo apt install virtualbox
 # sudo apt install vagrant
 # sudo apt install ngrok

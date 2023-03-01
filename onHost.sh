@@ -7,8 +7,8 @@ sudo tee -a /etc/apt/sources.list<<EOF
 deb http://deb.debian.org/debian bullseye main contrib non-free
 deb-src http://deb.debian.org/debian bullseye main contrib non-free
 
-deb http://security.debian.org/debian-security bullseye-security main
-deb-src http://security.debian.org/debian-security bullseye-security main
+deb http://security.debian.org/debian-security bullseye-security main contrib
+deb-src http://security.debian.org/debian-security bullseye-security main contrib
 
 deb http://deb.debian.org/debian bullseye-updates main contrib non-free
 deb-src http://deb.debian.org/debian bullseye-updates main contrib non-free
@@ -24,8 +24,16 @@ deb https://fasttrack.debian.net/debian-fasttrack/ bullseye-fasttrack main contr
 deb https://fasttrack.debian.net/debian-fasttrack/ bullseye-backports-staging main contrib
 EOF
 
-# sudo apt install virtualbox
+sudo apt install virtualbox
 # sudo apt install vagrant
+wget -O ~/vagrant_2.3.4.zip https://releases.hashicorp.com/vagrant/2.3.4/vagrant_2.3.4_linux_amd64.zip
+unzip  ~/vagrant_2.3.4.zip 
+mkdir ~/bin
+export PATH="~/bin:$PATH"
+mv vagrant ~/bin/vagrant_2.3.4 
+cp ~/bin/vagrant_2.3.4 ~/bin/vagrant
+
+
 # sudo apt install ngrok
 
 vagrant up
